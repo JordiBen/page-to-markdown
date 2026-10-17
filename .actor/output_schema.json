@@ -1,0 +1,12 @@
+{
+  "actorOutputSchemaVersion": 1,
+  "title": "Web page to Markdown output",
+  "properties": {
+    "results": {
+      "type": "string",
+      "template": "{{links.apiDefaultDatasetUrl}}/items",
+      "title": "Pages as Markdown",
+      "description": "One item per URL: clean Markdown, title, metadata, word/token counts and optional RAG chunks."
+    }
+  }
+}
