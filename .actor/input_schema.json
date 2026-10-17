@@ -1,0 +1,94 @@
+{
+  "title": "Web Page to Markdown input",
+  "type": "object",
+  "schemaVersion": 1,
+  "properties": {
+    "startUrls": {
+      "title": "URLs",
+      "type": "array",
+      "editor": "requestListSources",
+      "description": "Pages to convert (each URL is fetched once; no crawling).",
+      "prefill": [
+        {
+          "url": "https://crawlee.dev/python/docs/quick-start"
+        }
+      ]
+    },
+    "extractionMode": {
+      "title": "Extraction mode",
+      "type": "string",
+      "editor": "select",
+      "enum": [
+        "article",
+        "full"
+      ],
+      "enumTitles": [
+        "Main content (articles, docs, blog posts)",
+        "Full page body (minus nav/footer/scripts)"
+      ],
+      "default": "article",
+      "description": "'Main content' falls back to full page automatically when no article is found."
+    },
+    "includeLinks": {
+      "title": "Keep links",
+      "type": "boolean",
+      "default": true,
+      "description": "Keep hyperlinks as [text](url)."
+    },
+    "includeImages": {
+      "title": "Keep images",
+      "type": "boolean",
+      "default": false,
+      "description": "Keep images as ![alt](src)."
+    },
+    "includeTables": {
+      "title": "Keep tables",
+      "type": "boolean",
+      "default": true,
+      "description": "Convert HTML tables to Markdown tables. Turn off to drop tables from the output."
+    },
+    "chunkSize": {
+      "title": "Chunk size (characters, 0 = off)",
+      "type": "integer",
+      "default": 0,
+      "minimum": 0,
+      "maximum": 20000,
+      "description": "Also return the Markdown split into heading/paragraph-aware chunks for embeddings/RAG.",
+      "sectionCaption": "RAG options"
+    },
+    "chunkOverlap": {
+      "title": "Chunk overlap (characters)",
+      "type": "integer",
+      "default": 200,
+      "minimum": 0,
+      "maximum": 2000,
+      "description": "Number of characters repeated between consecutive chunks, so context is not lost at chunk boundaries."
+    },
+    "includeRawHtml": {
+      "title": "Include raw HTML",
+      "type": "boolean",
+      "default": false,
+      "sectionCaption": "Advanced",
+      "description": "Also store the original HTML of each page in the dataset. Makes items much larger."
+    },
+    "maxConcurrency": {
+      "title": "Max concurrency",
+      "type": "integer",
+      "default": 10,
+      "minimum": 1,
+      "maximum": 50,
+      "description": "Maximum number of pages fetched in parallel."
+    },
+    "timeoutSecs": {
+      "title": "Timeout per page (seconds)",
+      "type": "integer",
+      "default": 30,
+      "minimum": 5,
+      "maximum": 120,
+      "description": "How long to wait for each page to download."
+    }
+  },
+  "required": [
+    "startUrls"
+  ]
+}

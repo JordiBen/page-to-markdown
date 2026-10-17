@@ -1,0 +1,61 @@
+{
+  "actorSpecification": 1,
+  "name": "page-to-markdown",
+  "title": "Web Page to Markdown for LLMs & RAG",
+  "description": "Convert a list of URLs into clean Markdown: main content only (no nav, ads, cookie banners), with title, author, date, word/token counts and optional RAG chunks. Respects robots.txt. $1 per 1,000 pages.",
+  "version": "1.0",
+  "buildTag": "latest",
+  "input": "./input_schema.json",
+  "dockerfile": "../Dockerfile",
+  "readme": "../README.md",
+  "storages": {
+    "dataset": {
+      "actorSpecification": 1,
+      "views": {
+        "overview": {
+          "title": "Pages",
+          "transformation": {
+            "fields": [
+              "url",
+              "title",
+              "wordCount",
+              "estimatedTokens",
+              "extractionMode",
+              "markdown",
+              "error"
+            ]
+          },
+          "display": {
+            "component": "table",
+            "properties": {
+              "url": {
+                "label": "URL",
+                "format": "link"
+              },
+              "title": {
+                "label": "Title"
+              },
+              "wordCount": {
+                "label": "Words",
+                "format": "number"
+              },
+              "estimatedTokens": {
+                "label": "~Tokens",
+                "format": "number"
+              },
+              "extractionMode": {
+                "label": "Mode"
+              },
+              "markdown": {
+                "label": "Markdown"
+              },
+              "error": {
+                "label": "Error"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
