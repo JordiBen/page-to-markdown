@@ -1,8 +1,8 @@
 {
   "actorSpecification": 1,
   "name": "page-to-markdown",
-  "title": "Web Page to Markdown for LLMs & RAG",
-  "description": "Convert a list of URLs into clean Markdown: main content only (no nav, ads, cookie banners), with title, author, date, word/token counts and optional RAG chunks. Respects robots.txt. $1 per 1,000 pages.",
+  "title": "Web Page to Markdown & Article Extractor for LLMs and RAG",
+  "description": "Convert a list of URLs into clean Markdown for LLMs and RAG: main article text only (no nav, ads or cookie banners), title, author, date, word and token counts, and optional chunks. HTML to Markdown and article extraction at $1 per 1,000 pages.",
   "version": "1.0",
   "buildTag": "latest",
   "input": "./input_schema.json",
